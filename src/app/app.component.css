@@ -1,0 +1,44 @@
+.mainContainer {
+  padding: 0;
+  margin: 0;
+  /* background-color: #F9D949; */
+  /* background-image: url('./../../src/images/mainpic3.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  /* height: 100%; */
+  box-sizing: border-box;
+}
+
+/* .mainPic{
+    background-image: url('./../../../assets/images/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width:100%;
+  height:100%; 
+  box-sizing:border-box;
+} */
+
+nav{
+  height: 100px;
+}
+
+.notesText {
+  color: white;
+}
+
+.navbar{
+  background-color: #001C30 !important;
+  color: white !important;
+}
+.navbar-brand{
+  color: white;
+  font-size: 40px;
+  padding: 10px 10px;
+  font-weight: bold;
+}
+.nav-link{
+  color: white;
+}

@@ -1,0 +1,114 @@
+<div class="container">
+
+  <!-- -------- this by form control Name--------------- -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="notesDataForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-4">
+          <label for="exampleInputTitle" class="labelInput mb-3">Title</label>
+          <input type="text" class="form-control inputBox" id="exampleInputTitle" aria-describedby="emailHelp"
+            placeholder="Enter notes title" formControlName="title">
+            <span style="color: red;" *ngIf="titleMessage && titleMessage.invalid && titleMessage.touched">Title is required (Min 3 char)</span>
+        </div>
+        <div class="form-group mb-4">
+          <label for="exampleInputDesc" class="labelInput mb-3">Description</label>
+          <textarea type="text" class="form-control inputBox" id="exampleInputDesc" placeholder="Enter your goals"
+            formControlName="description"></textarea>
+        </div>
+        <div class="form-group mb-4">
+          <label for="exampleInputDate" class="labelInput mb-3">End Date to meet your GOALS</label>
+          <input type="date" class="form-control inputBox dateBox" id="exampleInputDate" formControlName="date">
+        </div>
+        <button type="submit" class="btn btn-primary submitBtn" [disabled]="!notesDataForm.valid">Submit</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="listHeading mt-4 text-center">List of your To Do's</h1>
+      <div *ngFor="let row of notesArray">
+        <div class="todoBox mt-4">
+
+          <div class="todoTitile">
+            <h2 class="noteTitle">{{row.title | uppercase}}</h2>
+
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="todoDesc">
+                <p class="descText">{{row.description}}</p>
+
+              </div>
+
+              <div class="todoDate">
+                <p class="dateText">{{row.date}}</p>
+              </div>
+            </div>
+            <div class="col-md-4 btnSection">
+              <button class="btn btn-success btnCustom editBtn mr-5" (click)="onEdit(row)">Edit</button>
+              <button class="btn btn-danger btnCustom deleteBtn" (click)="onDelete(row)">Delete</button>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+  <!-- <app-delete-confirm-modal [dataChild]="id"></app-delete-confirm-modal> -->
+
+
+
+
+
+  <!-- this is by LOCAL RFERENCE -->
+
+  <!-- <div class="mb-4">
+        <label for="exampleInputTitle">Title</label>
+        <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Enter notes title" #titleInput>
+      </div>
+      <div class="mb-4">
+        <label for="exampleInputDesc">Description</label>
+        <textarea type="text" class="form-control" id="exampleInputDesc" placeholder="Enter your goals" #descInput></textarea>
+      </div>
+      <div class=" mb-4">
+          <label for="exampleInputDate">End Date to meet your GOALS</label>
+          <input type="date" class="form-control" id="exampleInputDate" #dateInput>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit(titleInput , descInput ,dateInput )">Submit</button>
+      </div> -->
+
+
+
+  <!-- this is by [(ngModel)] -->
+
+  <!-- 
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group mb-4">
+            <label for="exampleInputTitle">Title</label>
+            <input type="text" class="form-control displayInput" id="title" name="title" aria-describedby="emailHelp"
+              placeholder="Enter notes title" [(ngModel)]="title">
+          </div>
+          <div class="form-group mb-4">
+            <label for="exampleInputDesc">Description</label>
+            <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter your goals"
+            [(ngModel)]="description"></textarea>
+          </div>
+          <div class="form-group mb-4">
+            <label for="exampleInputDate">End Date to meet your GOALS</label>
+            <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form> -->
+
+
+
+</div>
